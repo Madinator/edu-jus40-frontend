@@ -1,0 +1,25 @@
+<div class="student-side-bar-courses">
+    <app-expander  [isExpanded]="isOpen">
+        <button class="button" (click)="toggle()" button>
+            <div class="base">
+                <h1 class="name">Высшая матекатика</h1>
+                <span class="stream">Поток №2</span>
+            </div>
+            <div class="additional">
+                <app-progress-bar [value]="80"></app-progress-bar>
+                <div class="properties">
+                    <span class="key">Мой прогресс</span>
+                    <span class="value">24%</span>
+                </div>
+            </div>
+            <app-primary-arrow class="arrow" [isOpen]="isOpen" closeColor="white"></app-primary-arrow>
+        </button>
+        <div class="content" content>
+            <ul class="list">
+                <li class="item">
+                    <button class="button">Физика для чайников</button>
+                </li>
+            </ul>
+        </div>
+    </app-expander>
+</div>

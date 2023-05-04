@@ -1,0 +1,9 @@
+.input-component {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    .delete-button {
+        width: 24px;
+        height: 24px;
+    }
+}

@@ -1,0 +1,7 @@
+<div class="form-field">
+    <label class="label">{{ name }}</label>
+    <div class="input" [ngClass]="{'unactive': !isActive, 'input-focused': focused, 'input-error': error}">
+        <ng-content></ng-content>
+    </div>
+    <span *ngIf="error" class="error-text">{{error}}</span>
+</div>

@@ -1,0 +1,50 @@
+.student-side-bar-item {
+    padding: 18px 16px;
+    .toggler {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+    }
+    .status {
+        width: 24px;
+        height: 24px;
+    }
+    .name {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;
+        color: var(--primary-white);
+        margin-left: 12px;
+    }
+    .arrow {
+        width: 16px;
+        height: 16px;
+        margin-left: 3px;
+    }
+
+    .navigation {
+        margin-top: 20px;
+    }
+    .list {
+        display: flex;
+        flex-flow: column;
+        gap: 16px;
+    }
+    .button {
+        display: flex;
+        flex-flow: row;
+        gap: 8px;
+        color: white;
+        margin-left: 36px;
+    }
+    .button--additional {
+        margin-left: 20px;
+    }
+    .button:hover {
+        color: var(--secondary-green-base);
+    }
+}
+
+.student-side-bar-item:hover {
+    background: rgba(255, 255, 255, 0.04);
+}

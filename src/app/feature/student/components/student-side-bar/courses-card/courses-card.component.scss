@@ -1,0 +1,77 @@
+.student-side-bar-courses {
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 16px;
+    width: 100%;
+    .button {
+        display: flex;
+        flex-flow: column;
+        gap: 24px;
+
+        padding: 16px;
+
+        width: 100%;
+    }
+    .base {
+        display: flex;
+        flex-flow: column;
+        align-items: start;
+        gap: 4px;
+    }
+    .name {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        color: var(--primary-white);
+    }
+    .stream {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 14px;
+        color: var(--moon-400);
+    }
+    .additional {
+        display: flex;
+        flex-flow: column;
+        gap: 12px;
+
+        width: 100%;
+    }
+    .properties {
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+    }
+    .key {
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 16px;
+        color: var(--moon-400);
+    }
+    .value {
+        font-weight: 600;
+        font-size: 13px;
+        line-height: 16px;
+        color: var(--moon-400);
+    }
+    .arrow {
+        margin: 0 auto;
+    }
+
+    .content {
+        opacity: 0.35;
+        background: rgba(255, 255, 255, 0.07);
+    }
+    .list {
+        display: flex;
+        flex-flow: column;
+    }
+    .item {
+        border-top: 1px solid var(--moon-1000);
+    }
+    .button {
+        padding: 16px 36px 16px 16px;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+    }
+}

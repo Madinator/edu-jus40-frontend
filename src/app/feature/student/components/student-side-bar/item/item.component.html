@@ -1,0 +1,56 @@
+<div class="student-side-bar-item" >
+    <app-expander [isExpanded]="isOpen">
+        <button class="toggler" (click)="toggle()" button>
+            <img 
+                *ngIf="type === courseStatus.ADDITIONAL"
+                class="status" 
+                src="assets/svg/circles/files-circle.svg" 
+                alt=""/>
+            <img 
+                *ngIf="type === courseStatus.FINISHED"
+                class="status" 
+                src="assets/svg/circles/checkmark-circle.svg" 
+                alt=""/>
+            <img 
+                *ngIf="type === courseStatus.LOCKED"
+                class="status" 
+                src="assets/svg/circles/lock-circle.svg" 
+                alt=""/>
+            <div 
+                *ngIf="type === courseStatus.PROCESSING"
+                class="status">
+                <mat-progress-spinner
+                    class="example-margin"
+                    [color]="color"
+                    [mode]="mode"
+                    [value]="value"
+                    [diameter]="diameter">
+                </mat-progress-spinner>
+            </div>
+            <span class="name">Доп. материалы к курсу</span>
+            <button class="arrow">
+                <app-primary-arrow [isOpen]="isOpen"></app-primary-arrow>
+            </button>
+        </button>
+        <nav class="navigation" content>
+            <ul class="list">
+                <li class="item" *ngFor="let file of filesType"
+                >
+                    <button class="button" *ngIf="type !== courseStatus.ADDITIONAL">
+                        <span>О чем этот курс</span>
+                    </button>
+                    <div *ngIf="type === courseStatus.ADDITIONAL">
+                        <button 
+                            class="button button--additional" 
+                            >
+                            <img *ngIf="file === fileExtension.PDF" src="assets/svg/files/pdf.svg" alt=""/>
+                            <img *ngIf="file === fileExtension.WORD" src="assets/svg/files/word.svg" alt=""/>
+                            <img *ngIf="file === fileExtension.EXCEL" src="assets/svg/files/excel.svg" alt=""/>
+                            <span>О чем этот курс</span>
+                        </button>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </app-expander>
+</div>

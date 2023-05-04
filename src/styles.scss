@@ -1,1 +1,208 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$mat-primary-theme: (
+    50: #2A60F7,
+    100: #2A60F7,
+    200: #2A60F7,
+    300: #2A60F7,
+    400: #2A60F7,
+    500: #2A60F7,
+    600: #2A60F7,
+    700: #2A60F7,
+    800: #2A60F7,
+    900: #2A60F7,
+    contrast: (
+        50: blue,
+        100: blue,
+        200: blue,
+        300: blue,
+        400: blue,
+        500: blue,
+        600: blue,
+        700: blue,
+        800: blue,
+        900: blue,
+    )
+);
+
+$mat-accent-theme: (
+    50: #31A961,
+    100: #31A961,
+    200: #31A961,
+    300: #31A961,
+    400: #31A961,
+    500: #31A961,
+    600: #31A961,
+    700: #31A961,
+    800: #31A961,
+    900: #31A961,
+    contrast: (
+        50: green,
+        100: green,
+        200: green,
+        300: green,
+        400: green,
+        500: green,
+        600: green,
+        700: green,
+        800: green,
+        900: green,
+    )
+);
+
+$my-primary:  mat.define-palette($mat-primary-theme, 500);
+$my-accent: mat.define-palette($mat-accent-theme, 500);
+
+$my-theme: mat.define-light-theme((
+ color: (
+   primary: $my-primary,
+   accent: $my-accent,
+ ),
+ density: 0,
+));
+
+@include mat.all-component-themes($my-theme);
+
+/* reset style */
+
+*, *:before, *:after {
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    text-size-adjust: none;
+}
+
+footer, header, nav, section, main{
+    display: block;
+}
+
+body{
+    line-height: 1;
+}
+
+ol, ul{
+    list-style: none;
+}
+
+blockquote, q{
+    quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after{
+    content: '';
+    content: none;
+}
+
+table{
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+button,
+input{
+  border: none;
+  padding: 0;
+  background: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* global variables */
+
+:root {
+--primary-white: #FFFFFF;
+
+--secondary-blue-base: #2A60F7;
+--secondary-blue-smoth: #CCD9FD;
+--secondary-yellow-base: #F2C94C;
+--secondary-yellow-smoth: #FCF2D4;
+--secondary-green-base: #31A961;
+--secondary-green-smoth: #ceead999;
+--secondary-red-base: #E73152;
+--secondary-red-smoth: #F9CED5;
+
+--primary-error: #FF5656;
+
+--moon-100: #F6F7F9;
+--moon-200: #E8E9EE;
+--moon-300: #D8DBE3;
+--moon-400: #B3B8C7;
+--moon-500: #9399AB;
+--moon-600: #7D8499;
+--moon-700: #6A7186;
+--moon-800: #565D73;
+--moon-900: #444B5F;
+--moon-1000: #32384A;
+--moon-1100: #282D3E;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('./assets/fonts/inter/Inter-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.iconic-input {
+    width: 100%;
+    height: 46px;
+    border: none;
+
+    font-weight: 400;
+    font-size: 14px;
+    background-color: inherit;
+}
+.iconic-input:focus {
+    outline: none;
+}
+
+.iconic-button {
+    padding: 11px 16px;
+    width: 100%;
+    border-radius: 8px;
+
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.primary-button {
+    color: var(--primary-white);
+    background-color: var(--secondary-blue-base);
+}
+.primary-button:disabled {
+    background-color: var(--secondary-blue-smoth);
+}
+.secondary-button {
+    color: var(--moon-1000);
+    border: 1px solid var(--moon-200);
+    background-color: var(--primary-white);
+}
+.additional-button {
+    border: 1px solid var(--secondary-blue-base);
+    color: var(--secondary-blue-base);
+    background-color: var(--primary-white);
+}
+
+/* test */
+
+body {
+    background: #1E1E1E;
+}
+
+/* test */

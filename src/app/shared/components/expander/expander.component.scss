@@ -1,0 +1,10 @@
+.expander {
+    width: 100%;
+    .button {
+        width: 100%;
+    }
+    .content {
+        height: 0;
+        overflow: hidden;
+    }
+}

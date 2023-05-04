@@ -1,0 +1,11 @@
+<div class="expander">
+    <button class="button">
+        <ng-content select="[button]"></ng-content>
+    </button>
+    <div class="content" id="expander-content">
+        <ng-content 
+            select="[content]" 
+            [hidden]="!isExpanded">
+        </ng-content>
+    </div>
+</div>
