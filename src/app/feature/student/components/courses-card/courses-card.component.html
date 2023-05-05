@@ -1,0 +1,40 @@
+<div class="courses-card">
+    <app-expander [isExpanded]="isOpen">
+        <button class="button" (click)="toggle()" button>
+            <div class="info">
+                <h1 class="name">Высшая математика</h1>
+                <span class="stream">Поток №2</span>
+            </div>
+            <app-primary-arrow closeColor="white" [isOpen]="isOpen"></app-primary-arrow>
+        </button>
+        <div class="content" content>
+            <ul class="list">
+                <li class="item">
+                    <button class="item-button">
+                        <h1 class="item-name">Высшая математика</h1>
+                        <span class="item-stream">Поток №2</span>
+                    </button>
+                </li>
+                <!-- <li class="item">
+                    <button class="item-button">
+                        <h1 class="item-name">Высшая математика</h1>
+                        <span class="item-stream">Поток №2</span>
+                    </button>
+                </li>
+                <li class="item">
+                    <button class="item-button">
+                        <h1 class="item-name">Высшая математика</h1>
+                        <span class="item-stream">Поток №2</span>
+                    </button>
+                </li> -->
+            </ul>
+            <div class="one-course">
+                <div class="one-course-info">
+                    <img class="one-course-icon" src="assets/svg/informative/Info.svg" alt="" />
+                    <p class="one-course-text">Других купленных курсов у вас нет, для того чтобы приобрести новый перейдите в каталог курсов</p>
+                </div>
+                <app-courses-catalog-button [theme]="catalogCoursesButtonTheme.LIGHT"></app-courses-catalog-button>
+            </div>
+        </div>
+    </app-expander>
+</div>

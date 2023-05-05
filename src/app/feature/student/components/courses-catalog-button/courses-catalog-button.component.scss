@@ -1,0 +1,17 @@
+.courses-catalog-button {
+    border: 1px solid var(--moon-700);
+    padding: 8px 12px;
+    border-radius: 8px;
+    width: 100%;
+    font-weight: 500;
+    line-height: 16px;
+    color: var(--primary-white);
+    &:hover {
+        background-color: var(--secondary-yellow-base);
+    }
+
+    &--light {
+        border: 1px solid var(--moon-200);
+        color: #1C202C;
+    }
+}

@@ -1,0 +1,26 @@
+.responsibles-card {
+    .button {
+        padding: 28px 16px;
+        border: 1px solid var(--moon-200);
+        background-color: var(--primary-white);
+        border-radius: 16px;
+
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        gap: 16px;
+    }
+    .responsibles {
+        display: flex;
+        flex-flow: row;
+    }
+    .photo-next {
+        margin-left: -20px;
+    }
+    .professions {
+        font-weight: 400;
+        line-height: 18px;
+        color: var(--moon-1000);
+        text-align: left;
+    }
+}

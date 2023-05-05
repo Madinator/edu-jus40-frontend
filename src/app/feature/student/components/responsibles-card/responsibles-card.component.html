@@ -1,0 +1,13 @@
+<div class="responsibles-card">
+    <app-expander [isExpanded]="isOpen">
+        <button class="button" (click)="toggle()" button>
+            <div class="responsibles">
+                <img class="photo" src="assets/img/test/teacher.png" alt="" />
+                <img class="photo photo-next" src="assets/img/test/teacher2.png" alt="" />
+            </div>
+            <span class="professions">Куратор <p>и учитель</span>
+            <app-primary-arrow [isOpen]="isOpen" openColor="#6A7186" [initialSlope]="90" [slopeDegree]="90"></app-primary-arrow>
+        </button>
+        <div class="content" content></div>
+    </app-expander>
+</div>
