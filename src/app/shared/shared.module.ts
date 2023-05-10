@@ -13,7 +13,7 @@ import { ComponentsModule } from './components/components.module';
   ],
   exports: [
     CommonModule,
-    ComponentsModule
+    ComponentsModule,
   ],
 })
 export class SharedModule { }

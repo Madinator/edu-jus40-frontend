@@ -1,13 +1,15 @@
 import { ChangeDetectionStrategy, Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { NoopValueAccessorDirectiveDirective } from 'src/app/shared/directives/noop-value-accessor-directive/noop-value-accessor-directive.directive';
 
 @Component({
   selector: 'app-input',
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
-
+  hostDirectives: [NoopValueAccessorDirectiveDirective], 
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputComponent {
+
   @Input() name: string = "";
   public focused: boolean = false;
   @Input() isActive: boolean = true;
