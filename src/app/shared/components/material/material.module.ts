@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+
+import { ProgressBarComponent } from './progress-bar/progress-bar.component';
+
 
 @NgModule({
   declarations: [
-    ProgressBarComponent
+    ProgressBarComponent,
   ],
   imports: [
     CommonModule,

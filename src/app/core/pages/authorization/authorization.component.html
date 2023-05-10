@@ -1,0 +1,51 @@
+<div class="autorization-page">
+    <app-login-register>
+        <div class="stepper-wrapper">
+          <mat-stepper class="stepper">
+              <mat-step [stepControl]="registrationGroup">
+                  <form class="form" [formGroup]="registrationGroup">
+                    <h1 class="step_title">Вход</h1>
+                    <span class="step_desc">Добро пожаловать!</span>
+                    <div class="fields">
+                        <app-input 
+                            name="Email" 
+                            formControlName="email"
+                        >
+                        </app-input>
+                        <app-input-password 
+                            name="Придумайте пароль"
+                            formControlName="password">
+                        </app-input-password>
+                        <div class="remember-me">
+                            <mat-checkbox color="primary"></mat-checkbox>
+                            <span>Запомнить меня</span>
+                        </div>
+                    </div>
+                    <button class="confirm-button iconic-button primary-button">Войти</button>
+                    <button class="button-link last-button" matStepperNext>Забыл пароль</button>
+                  </form>
+              </mat-step> 
+              <mat-step [stepControl]="resetPassword" >
+                <form class="form" [formGroup]="resetPassword">
+                  <h1 class="step_title">Сброс пароля</h1>
+                  <span class="step_desc">Мы отправим вам письмо с инструкциями
+                    о том, как сбросить пароль.</span>
+                  <div class="fields">
+                    <app-input name="Email" formArrayName="email"></app-input>
+                  </div>
+                  <button class="confirm-button iconic-button primary-button" matStepperNext>Отправить</button>
+                  <button class="button-link last-button" matStepperPrevious>Вернуться назад</button>
+                </form>
+              </mat-step>
+              <mat-step>
+                <div class="form">
+                    <img src="assets/svg/circles/checkmark-blue-big-circle.svg" alt="" />
+                    <h1 class="step_title step_title--3">Проверьте почту</h1>
+                    <span class="step_desc step_desc--3">Чтобы сбросить пароль, перейдите по ссылке в письме, отправленном на адрес Alexadams@gmail.com.</span>
+                    <span class="action">Не получили письмо? <button class="button-link" matStepperPrevious>Попробовать другой адрес</button></span>
+                </div>
+              </mat-step>
+          </mat-stepper>
+        </div>
+      </app-login-register>
+</div>
