@@ -1,4 +1,4 @@
-<div class="registration-page">
+<div>
     <app-login-register>
       <div class="stepper-wrapper">
         <mat-stepper class="stepper">
@@ -8,25 +8,31 @@
                   <div class="fields">
                     <app-input 
                       name="Email" 
-                      [isActive]="false"
                       formControlName="email"
+                      [isActive]="false"
+                      (input)="handleFormControlErrors(firstFormGroup, firstFormGroupErrors, 'email')"
                     >
                     </app-input>
                     <app-input-password 
-                      [error]="firstFormGroupErrorMessage" 
+                      [error]="firstFormGroupErrors.password" 
                       name="Придумайте пароль"
-                      formControlName="password">
+                      formControlName="password"
+                      (input)="handleFormControlErrors(firstFormGroup, firstFormGroupErrors, 'password')">
                     </app-input-password>
                     <app-input-password 
-                      [error]="firstFormGroupErrorMessage" 
+                      [error]="firstFormGroupErrors.confirm_password" 
                       name="Повторите пароль"
-                      formControlName="confirm_password">
+                      formControlName="confirm_password"
+                      (input)="handleFormControlErrors(firstFormGroup, firstFormGroupErrors, 'confirm_password')">
                     </app-input-password>
                   </div>
                   <span class="circs">Продолжая, я соглашаюсь с <span class="bold">пользовательским 
                     соглашением</span> и с обработкой моей персональной
                     информации на условиях <span class="bold">политики конфидициальности</span></span>
-                  <button class="confirm-button iconic-button primary-button" matStepperNext>Следующий шаг</button>
+                  <button 
+                    class="confirm-button iconic-button primary-button" 
+                    [disabled]="firstFormGroup.invalid"
+                    matStepperNext>Следующий шаг</button>
                   <div class="problems">
                     <div class="line"></div>
                     <span class="problems__text">Возникли проблемы?</span>
@@ -40,13 +46,33 @@
                 <h1 class="step_title">Шаг 2</h1>
                 <span class="step_desc">Заполнение персональных данных</span>
                 <div class="fields">
-                  <app-input name="Фамилия" formArrayName="second_name"></app-input>
-                  <app-input name="Имя" formArrayName="first_name"></app-input>
-                  <app-input name="Имя Родителя" formArrayName="parent_name"></app-input>
-                  <app-input name="Контакты Родителя" formArrayName="parent_contact" prefix="+7" [mask]="' (000) 000-00-00'"></app-input>
-                  <app-input name="Email родителя" formArrayName="parent_email"></app-input>
+                  <app-input 
+                    name="Фамилия" 
+                    formControlName="second_name" 
+                    (input)="handleFormControlErrors(secondFormGroup, secondFormGroupErrors, 'second_name')"></app-input>
+                  <app-input 
+                    name="Имя" 
+                    formControlName="first_name"
+                    (input)="handleFormControlErrors(secondFormGroup, secondFormGroupErrors, 'first_name')"></app-input>
+                  <app-input 
+                    name="Имя Родителя" 
+                    formControlName="parent_name"
+                    (input)="handleFormControlErrors(secondFormGroup, secondFormGroupErrors, 'parent_name')"></app-input>
+                  <app-input 
+                    name="Контакты Родителя" 
+                    formControlName="parent_contact" 
+                    prefix="+7" 
+                    [mask]="' (000) 000-00-00'"
+                    (input)="handleFormControlErrors(secondFormGroup, secondFormGroupErrors, 'parent_contact')"></app-input>
+                  <app-input 
+                    name="Email родителя" 
+                    formControlName="parent_email"
+                    (input)="handleFormControlErrors(secondFormGroup, secondFormGroupErrors, 'parent_email')"></app-input>
                 </div>
-                <button class="confirm-button iconic-button primary-button" matStepperNext>Следующий шаг</button>
+                <button 
+                  class="confirm-button iconic-button primary-button" 
+                  [disabled]="secondFormGroup.invalid"
+                  matStepperNext>Следующий шаг</button>
                 <button class="button-link last-button" matStepperPrevious>Вернуться назад</button>
               </form>
             </mat-step>
@@ -55,13 +81,45 @@
                 <h1 class="step_title">Шаг 3</h1>
                 <span class="step_desc">Образовательные данные</span>
                 <div class="fields">
-                  <app-input name="Класс обучения" formArrayName="education_class"></app-input>
-                  <app-input name="Первый предмет для ЕНТ" formArrayName="first_item"></app-input>
-                  <app-input name="Второй предмет для ЕНТ" formArrayName="second_item"></app-input>
-                  <app-input name="Инстаграм" formArrayName="instagram" prefix="instagram.com/" mask="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"></app-input>
-                  <app-input name="Телефон (с ватсапом)" formArrayName="phone_number" prefix="+7" mask=' (000) 000-00-00'></app-input>
+                  <app-input 
+                    name="Класс обучения" 
+                    formControlName="education_class"
+                    (input)="handleFormControlErrors(thirdFormGroup, thirdFormGroupErrors, 'education_class')"></app-input>
+                  <app-select 
+                    name="Первый предмет для ЕНТ" 
+                    formControlName="first_item"
+                    [options]="firstSubjects"
+                    (selectedValue)="onFirstSubjectChoosed($event)"
+                    (input)="handleFormControlErrors(thirdFormGroup, thirdFormGroupErrors, 'first_item')"
+                    >
+                  </app-select>
+                  <app-select 
+                    name="Второй предмет для ЕНТ" 
+                    formControlName="second_item"
+                    [options]="secondSubjects"
+                    (input)="handleFormControlErrors(thirdFormGroup, thirdFormGroupErrors, 'second_item')"
+                    >
+                  </app-select>
+                  <app-input 
+                    name="Инстаграм" 
+                    formControlName="instagram" 
+                    prefix="instagram.com/" 
+                    mask="A*"
+                    (input)="handleFormControlErrors(thirdFormGroup, thirdFormGroupErrors, 'instagram')"
+                    ></app-input>
+                  <app-input 
+                    name="Телефон (с ватсапом)" 
+                    formControlName="phone_number" 
+                    prefix="+7" 
+                    mask=' (000) 000-00-00'
+                    (input)="handleFormControlErrors(thirdFormGroup, thirdFormGroupErrors, 'phone_number')"
+                    ></app-input>
                 </div>
-                <button class="confirm-button iconic-button primary-button" matStepperNext>Начать обучение</button>
+                <button 
+                  class="confirm-button iconic-button primary-button" 
+                  matStepperNext
+                  [disabled]="thirdFormGroup.invalid"
+                  >Начать обучение</button>
                 <button class="button-link last-button" matStepperPrevious>Вернуться назад</button>
               </form>
             </mat-step>

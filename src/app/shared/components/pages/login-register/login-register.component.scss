@@ -24,4 +24,98 @@
     .draft-img {
         width: 100%;
     }
+    //FOR CHILDREN
+    .stepper-wrapper {
+        margin-top: 150px;
+        width: 364px;
+    }
+    .form {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+    }
+    .step_title {
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 36px;
+        color: #1C202C;
+    }
+    .step_desc {
+        display: block;
+        margin-top: 12px;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .fields {
+        margin-top: 32px;
+
+        display: flex;
+        flex-flow: column;
+        gap: 16px;
+        width: 100%;
+    }
+    .circs {
+        display: block;
+        margin-top: 16px;
+
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 16px;
+
+        color: var(--moon-700);
+    }
+    .bold {
+        color: var(--moon-1000);
+    }
+    .confirm-button {
+        margin-top: 32px;
+    }
+    .problems {
+        margin-top: 24px;
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        gap: 24px;
+        width: 100%;
+    }
+    .line {
+        width: 100%;
+        border-top: 1px solid var(--moon-200);
+    }
+    .problems__text {
+        font-size: 12px;
+        line-height: 16px;
+        color: #667085;
+        white-space: nowrap;
+    }
+    .last-button {
+        margin-top: 22px;
+        text-align: center;
+    }
+    .remember-me {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .step_title--3 {
+        display: block;
+        margin-top: 36px;
+    }
+    .step_desc--3 {
+        margin-top: 12px;
+        text-align: center;
+    }
+    .action {
+        display: block;
+        margin-top: 32px;
+        line-height: 20px;
+        color: var(--moon-1000);
+        white-space: nowrap;
+    }
+    .mat-horizontal-stepper-header-container {
+        display: none;
+    }
 }

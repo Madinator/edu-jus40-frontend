@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, ElementRef, Input, ViewChild } from '@angular/core';
-import { NoopValueAccessorDirectiveDirective } from 'src/app/shared/directives/noop-value-accessor-directive/noop-value-accessor-directive.directive';
+import { NoopValueAccessorDirectiveDirective, injectNgControl } from 'src/app/shared/directives/noop-value-accessor-directive/noop-value-accessor-directive.directive';
 
 @Component({
   selector: 'app-input',
@@ -9,15 +9,17 @@ import { NoopValueAccessorDirectiveDirective } from 'src/app/shared/directives/n
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputComponent {
-
+  ngControl = injectNgControl();
+  
   @Input() name: string = "";
-  public focused: boolean = false;
   @Input() isActive: boolean = true;
+  @Input() prefix: string = "";
+  @Input() mask: string | null | undefined;
+  @Input() error: string = "";
+
+  public focused: boolean = false;
 
   @ViewChild('inputField', { static: true }) inputField!: ElementRef<HTMLInputElement>;
-
-  @Input() prefix: string = "";
-  @Input() mask: string = "";
   
   onFocus(): void {
     this.focused = true;

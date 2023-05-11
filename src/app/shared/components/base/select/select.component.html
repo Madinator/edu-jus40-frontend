@@ -3,10 +3,9 @@
         class="iconic-input"
         (focus)="onFocus()" 
         (blur)="onBlur()" 
+        [formControl]="ngControl.control"
+        (change)="onSelect($event)"
     >
-        <option>first</option>
-        <option>second</option>
-        <option>third</option>
-        <option>forth</option>
+        <option *ngFor="let option of options" [value]="option">{{option}}</option>
     </select>
 </app-form-field>

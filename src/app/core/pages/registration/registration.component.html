@@ -1,0 +1,77 @@
+<div>
+    <app-login-register>
+      <div class="stepper-wrapper">
+        <mat-stepper class="stepper">
+            <mat-step [stepControl]="firstFormGroup">
+                <form class="form" [formGroup]="firstFormGroup">
+                  <h1 class="step_title">Добро пожаловать</h1>
+                  <div class="fields">
+                    <app-input 
+                      [error]="firstFormGroupErrors.second_name" 
+                      name="Фамилия" 
+                      formControlName="second_name"
+                      (input)="handleFormControlErrors(firstFormGroup, firstFormGroupErrors, 'second_name')"
+                    >
+                    </app-input>
+                    <app-input
+                      [error]="firstFormGroupErrors.first_name" 
+                      name="Имя"
+                      formControlName="first_name"
+                      (input)="handleFormControlErrors(firstFormGroup, firstFormGroupErrors, 'first_name')">
+                    </app-input>
+                    <app-input
+                      name="email"
+                      formControlName="email">
+                    </app-input>
+                    <app-input 
+                      [error]="firstFormGroupErrors.instagram" 
+                      name="Инстаграм" 
+                      formControlName="instagram"
+                      prefix="instagram.com/" 
+                      mask="A*"
+                        (input)="handleFormControlErrors(firstFormGroup, firstFormGroupErrors, 'instagram')"></app-input>
+                  </div>
+                  <span class="circs">Продолжая, я соглашаюсь с <span class="bold">пользовательским 
+                    соглашением</span> и с обработкой моей персональной
+                    информации на условиях <span class="bold">политики конфидициальности</span></span>
+                  <button 
+                    class="confirm-button iconic-button primary-button" 
+                    [disabled]="firstFormGroup.invalid"
+                    matStepperNext>Следующий шаг</button>
+                  <div class="problems">
+                    <div class="line"></div>
+                    <span class="problems__text">Возникли проблемы?</span>
+                    <div class="line"></div>
+                  </div>
+                  <button class="button-link last-button">Написать в поддержку</button>
+                </form>
+            </mat-step> 
+            <mat-step [stepControl]="secondFormGroup" >
+              <form class="form" [formGroup]="secondFormGroup">
+                <h1 class="step_title">Шаг 2</h1>
+                <span class="step_desc">Придумайте пароль</span>
+                <div class="fields">
+                  <app-input-password 
+                      [error]="secondFormGroupErrors.password" 
+                      name="Придумайте пароль"
+                      formControlName="password"
+                      (input)="handleFormControlErrors(secondFormGroup, secondFormGroupErrors, 'password')">
+                    </app-input-password>
+                    <app-input-password 
+                      [error]="secondFormGroupErrors.confirm_password" 
+                      name="Повторите пароль"
+                      formControlName="confirm_password"
+                      (input)="handleFormControlErrors(secondFormGroup, secondFormGroupErrors, 'confirm_password')">
+                    </app-input-password>
+                </div>
+                <button 
+                  class="confirm-button iconic-button primary-button" 
+                  [disabled]="secondFormGroup.invalid"
+                  matStepperNext>Начать</button>
+                <button class="button-link last-button" matStepperPrevious>Вернуться назад</button>
+              </form>
+            </mat-step>
+        </mat-stepper>
+      </div>
+    </app-login-register>
+</div>
