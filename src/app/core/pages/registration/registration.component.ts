@@ -20,27 +20,16 @@ import { SubjectSelectionServiceService } from 'src/app/shared/services/subjectS
 export class RegistrationComponent {
   public firstFormGroup!: FormGroup;
   public firstFormGroupErrors = {
+    second_name: "",
+    first_name: "",
     email: "",
-    password: "",
-    confirm_password: ""
+    instagram: ""
   }
 
   public secondFormGroup!: FormGroup;
   public secondFormGroupErrors = {
-    second_name: "",
-    first_name: "",
-    parent_name: "",
-    parent_contact: "",
-    parent_email: "",
-  }
-
-  public thirdFormGroup!: FormGroup;
-  public thirdFormGroupErrors = {
-    education_class: "",
-    first_item: "",
-    second_item: "",
-    instagram: "",
-    phone_number: "",
+    password: "",
+    confirm_password: "",
   }
 
   public firstSubjects: Subjects[] = Object.values(Subjects); 
@@ -52,26 +41,16 @@ export class RegistrationComponent {
     private cdr: ChangeDetectorRef) {
 
     this.firstFormGroup = this._formBuilder.group({
+      second_name: ['', [Validators.required]],
+      first_name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
+      instagram: ['', [Validators.required]],
+    });
+
+    this.secondFormGroup = this._formBuilder.group({
       password: ['', [Validators.required, Validators.minLength(8)]],
       confirm_password: ['', [Validators.required, Validators.minLength(8)]]
     }, { validator: passwordMatchValidator() });
-
-    this.secondFormGroup = this._formBuilder.group({
-      second_name: ['', Validators.required],
-      first_name: ['', Validators.required],
-      parent_name: ['', Validators.required],
-      parent_contact: ['', Validators.required],
-      parent_email: ['', Validators.required],
-    });
-
-    this.thirdFormGroup = this._formBuilder.group({
-      education_class: ['', Validators.required],
-      first_item: ['', Validators.required],
-      second_item: ['', Validators.required],
-      instagram: ['', Validators.required],
-      phone_number: ['', Validators.required],
-    });
   }  
 
   handleFormControlErrors(form: FormGroup, error: any, controlName: string): void {

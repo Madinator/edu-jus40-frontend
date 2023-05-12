@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import {AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators} from '@angular/forms';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
+import { getFormControlErrors } from 'src/app/shared/validators';
 
 @Component({
   selector: 'app-authorization',
@@ -15,14 +16,34 @@ import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
   ],
 })
 export class AuthorizationComponent {
-  public registrationGroup: FormGroup = this._formBuilder.group({
-    email: ['', Validators.required],
-    password: ['', Validators.required],
-  });
+  public registrationGroup!: FormGroup;
+  public registrationGroupErrors = {
+    email: "",
+    password: "",
+    checked: ""
+  }
 
-  public resetPassword: FormGroup = this._formBuilder.group({
-    email: ['', Validators.required],
-  });
+  public resetPassword!: FormGroup;
+  public resetPasswordErrors = {
+    email: ""
+  }
 
-  constructor(private _formBuilder: FormBuilder) {}
+  constructor(
+    private _formBuilder: FormBuilder, 
+    private cdr: ChangeDetectorRef) {
+    this.registrationGroup = this._formBuilder.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required],
+      checked: [false, Validators.required]
+    });
+
+    this.resetPassword = this._formBuilder.group({
+      email: ['', Validators.required, Validators.email],
+    });
+  };
+
+  handleFormControlErrors(form: FormGroup, error: any, controlName: string): void {
+    getFormControlErrors(form, error, controlName);
+    this.cdr.detectChanges();
+  }
 }

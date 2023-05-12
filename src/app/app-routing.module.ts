@@ -2,11 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = 
-  [ { path: '', redirectTo: '/registration', pathMatch: 'full'},
-    { path: 'registration', loadChildren: () => import('./core/pages/student/registration/registration-routing.module').then(m => m.RegistrationRoutingModule) }, 
-    { path: 'authorization', loadChildren: () => import('./core/pages/authorization/authorization.module').then(m => m.AuthorizationModule) }, 
+  [ 
+    { path: '', redirectTo: '/student', pathMatch: 'full'},
+    { path: 'authorization', loadChildren: () => import('./core/pages/authorization/authorization.module').then(m => m.AuthorizationModule) },
+    { path: 'registration', loadChildren: () => import('./core/pages/registration/registration.module').then(m => m.RegistrationModule) },
     { path: 'student', loadChildren: () => import('./core/pages/student/student.module').then(m => m.StudentModule) }, 
-    { path: 'registration', loadChildren: () => import('./core/pages/student/registration/registration.module').then(m => m.RegistrationModule) }
+    { path: 'methodist', loadChildren: () => import('./core/pages/methodist/methodist.module').then(m => m.MethodistModule) },
   ];
 
 @NgModule({

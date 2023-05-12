@@ -1,19 +1,19 @@
-<app-form-field [name]="name" [focused]="focused" [isActive]="isActive">
+<app-form-field [name]="name" [focused]="focused" [isActive]="isActive" [error]="error">
     <div class="input-component">
         <input 
             #inputField
             class="iconic-input" 
-            type="type" 
             (focus)="onFocus()" 
             (blur)="onBlur()" 
             [prefix]="prefix"
             [mask]="mask"
+            [formControl]="ngControl.control"
         />
         <button 
             (click)="clearInput()"
             class="delete-button"
             >
-            <img [hidden]="!focused" src="/assets/svg/close-circle.svg" alt="">
+            <img [hidden]="!focused" src="assets/svg/circles/close-circle.svg" alt="">
         </button>
     </div>
 </app-form-field>

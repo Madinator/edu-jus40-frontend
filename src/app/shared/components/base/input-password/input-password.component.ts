@@ -15,8 +15,6 @@ export class InputPasswordComponent {
   @Input() error: string = "";
   public focused: boolean = false;
 
-  public passwordControl = new FormControl('', [Validators.required]);
-
   public isPasswordShown: boolean = false;
   @ViewChild('inputField', { static: true }) inputField!: ElementRef<HTMLInputElement>;
 
