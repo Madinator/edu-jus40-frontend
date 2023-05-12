@@ -8,20 +8,27 @@
                     <span class="step_desc">Добро пожаловать!</span>
                     <div class="fields">
                         <app-input 
-                            name="Email" 
-                            formControlName="email"
+                          [error]="registrationGroupErrors.email" 
+                          name="Email" 
+                          formControlName="email"
+                          (input)="handleFormControlErrors(registrationGroup, registrationGroupErrors, 'email')"
                         >
                         </app-input>
                         <app-input-password 
-                            name="Придумайте пароль"
-                            formControlName="password">
+                          [error]="registrationGroupErrors.password" 
+                          name="Придумайте пароль"
+                          formControlName="password"
+                          (input)="handleFormControlErrors(registrationGroup, registrationGroupErrors, 'password')"
+                          >
                         </app-input-password>
                         <div class="remember-me">
-                            <mat-checkbox color="primary"></mat-checkbox>
+                            <mat-checkbox formControlName="checked" color="primary"></mat-checkbox>
                             <span>Запомнить меня</span>
                         </div>
                     </div>
-                    <button class="confirm-button iconic-button primary-button">Войти</button>
+                    <button 
+                      class="confirm-button iconic-button primary-button"
+                      [disabled]="registrationGroup.invalid">Войти</button>
                     <button class="button-link last-button" matStepperNext>Забыл пароль</button>
                   </form>
               </mat-step> 
@@ -31,9 +38,17 @@
                   <span class="step_desc">Мы отправим вам письмо с инструкциями
                     о том, как сбросить пароль.</span>
                   <div class="fields">
-                    <app-input name="Email" formArrayName="email"></app-input>
+                    <app-input 
+                      [error]="resetPasswordErrors.email" 
+                      name="Email" 
+                      formControlName="email"
+                      (input)="handleFormControlErrors(resetPassword, resetPasswordErrors, 'email')"
+                      ></app-input>
                   </div>
-                  <button class="confirm-button iconic-button primary-button" matStepperNext>Отправить</button>
+                  <button 
+                  class="confirm-button iconic-button primary-button" 
+                  [disabled]="resetPassword.invalid"
+                  matStepperNext>Отправить</button>
                   <button class="button-link last-button" matStepperPrevious>Вернуться назад</button>
                 </form>
               </mat-step>

@@ -15,11 +15,17 @@
         align-items: center;
 
         padding: 30px 16px 70px;
+        @media only screen and (max-width: 1000px) {
+            width: 100%;
+        }
     }
     .right {
         width: 50%;
         padding: 16.5px 0;
         height: 100%;
+        @media only screen and (max-width: 1000px) {
+            display: none;
+        }
     }
     .draft-img {
         width: 100%;
@@ -28,6 +34,11 @@
     .stepper-wrapper {
         margin-top: 150px;
         width: 364px;
+
+        @media only screen and (max-width: 1000px) {
+            margin-top: 64px;
+            width: 90%;
+        }
     }
     .form {
         display: flex;
